@@ -53,6 +53,8 @@ C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\ClueLess.dll.config
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\ClueLess.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\ClueLess.pdb
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Antlr3.Runtime.dll
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\EntityFramework.dll
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\EntityFramework.SqlServer.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -76,6 +78,8 @@ C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\System.Web.WebPages.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\System.Web.WebPages.Razor.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\WebActivatorEx.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\WebGrease.dll
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\EntityFramework.xml
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\EntityFramework.SqlServer.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Newtonsoft.Json.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\System.Net.Http.Formatting.xml
@@ -94,7 +98,7 @@ C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.DependencyC
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.Web.xml
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csprojResolveAssemblyReference.cache
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csproj.CoreCompileInputs.cache
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.pdb
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csprojResolveAssemblyReference.cache

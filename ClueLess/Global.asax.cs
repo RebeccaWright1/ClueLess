@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClueLess.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,11 @@ namespace ClueLess
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            using (var context = new ClueLessContext())
+            {
+                context.Database.CreateIfNotExists();
+            }
         }
     }
 }

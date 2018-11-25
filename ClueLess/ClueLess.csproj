@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -184,11 +190,46 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Database\ClueLessContext.cs" />
+    <Compile Include="Database\DataModels\Actions.cs" />
+    <Compile Include="Database\DataModels\ActionTaken.cs" />
+    <Compile Include="Database\DataModels\Character.cs" />
+    <Compile Include="Database\DataModels\CharacterConfiguration.cs" />
+    <Compile Include="Database\DataModels\Configuration.cs" />
+    <Compile Include="Database\DataModels\Game.cs" />
+    <Compile Include="Database\DataModels\GameSolution.cs" />
+    <Compile Include="Database\DataModels\Location.cs" />
+    <Compile Include="Database\DataModels\PlayerToCharacter.cs" />
+    <Compile Include="Database\DataModels\PlayerToLocation.cs" />
+    <Compile Include="Database\DataModels\PlayerToWeapon.cs" />
+    <Compile Include="Database\DataModels\Position.cs" />
+    <Compile Include="Database\DataModels\SecretPassages.cs" />
+    <Compile Include="Database\DataModels\Suggestion.cs" />
+    <Compile Include="Database\DataModels\SuggestionResponse.cs" />
+    <Compile Include="Database\DataModels\User.cs" />
+    <Compile Include="Database\DataModels\Player.cs" />
+    <Compile Include="Database\DataModels\Weapon.cs" />
+    <Compile Include="Database\DataModels\WeaponConfiguration.cs" />
+    <Compile Include="Database\DataModels\WeaponPosition.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\BoardLocation.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Clue.cs" />
+    <Compile Include="Models\Configuration.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationOption.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Suggestion.cs" />
+    <Compile Include="Models\TurnOption.cs" />
+    <Compile Include="Models\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +269,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -245,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

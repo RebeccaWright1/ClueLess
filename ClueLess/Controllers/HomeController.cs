@@ -14,5 +14,11 @@ namespace ClueLess.Controllers
 
             return View();
         }
+
+        public ActionResult About()
+        {
+            ViewBag.Title = "About";
+            return View();
+        }
     }
 }
