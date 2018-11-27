@@ -98,7 +98,7 @@ C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.DependencyC
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\Microsoft.AI.Web.xml
+C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csprojResolveAssemblyReference.cache
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csproj.CoreCompileInputs.cache
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.pdb
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csprojResolveAssemblyReference.cache
