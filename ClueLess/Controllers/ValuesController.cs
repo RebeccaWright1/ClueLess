@@ -1,9 +1,12 @@
-﻿using System;
+﻿using ClueLess.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace ClueLess.Controllers
 {
@@ -41,6 +44,20 @@ namespace ClueLess.Controllers
         public String HelloWorld()
         {
             return "Hello World";
+        }
+
+        [HttpGet]
+        public Account GetAccountInformation(int userID)
+        {
+            Account userAccount = Account.GetAccount(userID);
+            return userAccount;
+        }
+
+        [HttpPost]
+        public void SetAccountInformation(string userInfo)
+        {
+            Account userInfoRecieved = JsonConvert.DeserializeObject<Account>(userInfo);
+            Account.SetAccount(userInfoRecieved);
         }
     }
 }
