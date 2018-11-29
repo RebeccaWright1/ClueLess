@@ -11,13 +11,18 @@ namespace ClueLess.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Title = "About";
+            return View();
+        }
+
+        public ActionResult GameView()
+        {
+            ViewBag.Title = "Game";
             return View();
         }
     }
