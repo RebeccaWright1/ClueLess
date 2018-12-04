@@ -211,3 +211,4 @@ C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess\obj\Debug\ClueLes
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess\obj\Debug\ClueLess.csproj.CopyComplete
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess\obj\Debug\ClueLess.dll
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess\obj\Debug\ClueLess.pdb
+C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess\obj\Debug\ClueLess.csprojAssemblyReference.cache
