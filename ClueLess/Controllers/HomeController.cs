@@ -25,5 +25,18 @@ namespace ClueLess.Controllers
             ViewBag.Title = "Game";
             return View();
         }
+
+
+        public ActionResult UserDashBoard()
+        {
+            ViewBag.Title = "User DashBoard";
+            return View();
+        }
+
+        public ActionResult EditProfile()
+        {
+            ViewBag.Title = "Edit Profile";
+            return View();
+        }
     }
 }
