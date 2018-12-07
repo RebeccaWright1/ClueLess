@@ -104,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
