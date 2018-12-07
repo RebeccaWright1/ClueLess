@@ -20,5 +20,10 @@ namespace ClueLess.Controllers
             ViewBag.Title = "About";
             return View();
         }
+        
+        public ActionResult TestUpload()
+        {
+            return View();
+        }
     }
 }

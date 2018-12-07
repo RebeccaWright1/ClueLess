@@ -25,17 +25,17 @@ namespace ClueLess.Database.DataModels
         public string Color { get; set; }
 
        // [ForeignKey("CharacterID")]
-        public Character Character { get; set; }
+        public virtual Character Character { get; set; }
 
      //   [ForeignKey("ConfigurationID")]
-        public Configuration Configuration { get; set; }
+        public virtual Configuration Configuration { get; set; }
 
       //  [ForeignKey("StartingPositionID")]
-        public Position StartingPosition { get; set; }
-        public ICollection<GameSolution> Solutions{get;set;}
-        public ICollection<Player> Players { get; set; }
-        public ICollection<PlayerToCharacter> CharacterClues { get; set; }
-        public ICollection<Suggestion> Suggestions { get; set; }
+        public virtual Position StartingPosition { get; set; }
+        public virtual ICollection<GameSolution> Solutions{get;set;}
+        public virtual ICollection<Player> Players { get; set; }
+        public virtual ICollection<PlayerToCharacter> CharacterClues { get; set; }
+        public virtual ICollection<Suggestion> Suggestions { get; set; }
 
 
     }

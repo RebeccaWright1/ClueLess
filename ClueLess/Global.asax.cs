@@ -1,6 +1,7 @@
 ﻿using ClueLess.Database;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -19,11 +20,11 @@ namespace ClueLess
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<ClueLessContext, MigrationConfiguration>());
 
-            using (var context = new ClueLessContext())
-            {
-                context.Database.CreateIfNotExists();
-            }
+
+            ClueLessContext db = new ClueLessContext();
+            var gamecount = db.Games.Count();
         }
     }
 }

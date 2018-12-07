@@ -1,7 +1,10 @@
-﻿using System;
+﻿using ClueLess.Database;
+using ClueLess.Database.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static ClueLess.Models.Notification;
 
 namespace ClueLess.Models
 {
@@ -20,12 +23,32 @@ namespace ClueLess.Models
         public static void SetAccount(Account updatedAccount) {
             try
             {
-                throw new NotImplementedException();
+                User useraccount;
                 //Step 1. Connect to the database
+                ClueLessContext db = new ClueLessContext();
                 //Step 2. Pull the user from the database based on the user's ID
-                //Step 3. If the user is null, create a new user
+                if (updatedAccount.UserID > 0)
+                {
+                    useraccount = db.Users.Where(user => user.ID == updatedAccount.UserID).FirstOrDefault();
+                }
+                else //Step 3. If the user is null, create a new user
+                {
+                    useraccount = new User
+                    {
+                        FirstName = updatedAccount.FirstName,
+                        LastName = updatedAccount.LastName,
+                        EmailAddress = updatedAccount.Email,
+                        Username = updatedAccount.UserName,
+                        Avatar = updatedAccount.Avatar==""?updatedAccount.UserName:updatedAccount.Avatar,
+                        IsAdminsitrator=updatedAccount.IsAdministrator,
+                        Password="1234qwer"
+                    };
+                }
+
                 //Step 4. Update the database user object from the UserObject
+                db.Users.Add(useraccount);
                 //Step 5. Save changes
+                db.SaveChanges();
 
             }catch(Exception e)
             {
@@ -41,15 +64,29 @@ namespace ClueLess.Models
         /// <returns>This return the user's account information</returns>
         public static Account GetAccount(int userID)
         {
-            Account userAccount = new Account();
+            Account userAccount= new Account();
             try
             {
-               
+
                 //Step 1. Connect to the database
+                ClueLessContext db = new ClueLessContext();
                 //Step 2. Pull the user by the ID
+                User user = db.Users.Where(x => x.ID == userID).FirstOrDefault();
                 //Step 3. "Map" the user information to the account information\
+                userAccount = new Account
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.EmailAddress,
+                    Avatar = user.Avatar,
+                    UserName = user.Username,
+                    IsAdministrator = user.IsAdminsitrator,
+                    Password = user.Password
+                };
+
                 //Step 4. Return the account
                 return userAccount;
+
             }catch(Exception e)
             {
                 Console.WriteLine(e.Message + "/n" + e.StackTrace);
@@ -57,8 +94,31 @@ namespace ClueLess.Models
             }
         }
 
+        /// <summary>
+        /// This method changes the user's password to thier new specified password, and
+        /// sends them an email notification that thier password was changed.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="newPassword"></param>
+        public static void ResetPassword( int userID, string newPassword)
+        {
+            ClueLessContext db = new ClueLessContext();
+            User user = db.Users.Where(x => x.ID == userID).FirstOrDefault();
+            user.Password = newPassword;
+            db.SaveChanges();
+
+            Notification.sendEmail(NotificationType.PasswordReset, user.EmailAddress);
+        }
+
+        public static void RequestUserName(string emailAddress)
+        {
+            Notification.sendEmail(NotificationType.UserNameReminder, emailAddress);
+        }
+
         public  int UserID { get; set; }
-        private  String UserName { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public  String UserName { get; set; }
         public  String Avatar { get; set; }
         public  bool IsAdministrator { get; set; }
         public  string Email { get; set; }

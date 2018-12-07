@@ -10,8 +10,11 @@ namespace ClueLess.Database
 {
     public class ClueLessContext : DbContext
     {
-        public ClueLessContext() : base("ClueLessContext") { }
-       
+        public ClueLessContext() : base("ClueLessContext") {
+           Configuration.ProxyCreationEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
+        }
+
         public DbSet<Actions> Actions { get; set; }
         public DbSet<ActionTaken> ActionsTaken { get; set; }
         public DbSet<Character> Characters { get; set; }
@@ -24,7 +27,7 @@ namespace ClueLess.Database
         public DbSet<PlayerToCharacter> PlayersToCharcters { get; set; }
         public DbSet<PlayerToLocation> PlayersToLocations { get; set; }
         public DbSet<PlayerToWeapon> PlayersToWeapons { get; set; }
-        public DbSet<Position> Posistions { get; set; }
+        public DbSet<Position> Positions { get; set; }
         public DbSet<SecretPassages> SecretPassages { get; set; }
         public DbSet<Suggestion> Suggestions { get; set; }
         public DbSet<SuggestionResponse> SuggestionResponses { get; set; }
@@ -153,6 +156,8 @@ namespace ClueLess.Database
             //{
             //    context.Database.CreateIfNotExists();
             //}
+
+            
         }
     }
 }
