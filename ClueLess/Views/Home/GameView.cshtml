@@ -1,0 +1,531 @@
+﻿<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/scripts/vue.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" id="vue-div" style="margin-top: 5%">
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca">
+                    <p style="text-align:center; padding-top: 30%; color: white">Kitchen</p>
+                    <p style="padding-left:5%; position: absolute; bottom: 0"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></p>
+                </div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca"><p style="text-align:center; padding-top: 30%; color: white">Ball Room</p></div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%; height: 10em; background-color:#428bca">
+                    <p style="text-align:center; padding-top: 30%; color: white">Conservatory</p>
+                    <p style="padding-left:5%; position: absolute; bottom: 0"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5%">
+            <div class="col-sm-3" style="">
+                <div style="width:80%; height: 4em; background-color:#428bca"><p style="text-align:center; padding-top: 8%; color: white">Library</p></div>
+                <div style="width:80%; height: 4em; background-color:#428bca; margin-top: 8%"><p style="text-align:center; padding-top: 8%; color: white">Billiard Room</p></div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca"><p style="text-align:center; padding-top: 30%; color: white">ClueLess</p></div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca"><p style="text-align:center; padding-top: 30%; color: white">Dining Room</p></div>
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5%">
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca">
+                    <p style="text-align:center; padding-top: 30%; color: white">Lounge</p>
+                    <p style="padding-left:5%; position: absolute; bottom: 0"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></p>
+                </div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%;  height: 10em; background-color:#428bca"><p style="text-align:center; padding-top: 30%; color: white">Hall</p></div>
+            </div>
+            <div class="col-sm-3" style="">
+                <div style="width:80%; height: 10em; background-color:#428bca">
+                    <p style="text-align:center; padding-top: 30%; color: white">Study</p>
+                    <p style="padding-left:5%; position: absolute; bottom: 0"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="">
+        <div class="form-group">
+            <label for="Moves" style="text-align:center">Moves:</label>
+            <textarea class="form-control" rows="10" id="comment"></textarea>
+        </div>
+        <div style="text-align:center;">
+            <button type="button" class="btn btn-primary" v-on:click="makeSuggestion">Make Suggestion</button>
+        </div>
+        <div v-if="makeSuggestionBool" style="float: left">
+            <label for="Moves" style="text-align:center">Suspects:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Miss Scarlet
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Professor Plum
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mrs. Peacock
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mr. Green
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Colonel Mustard
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mrs. White
+                </label>
+            </div>
+        </div>
+        <div v-if="makeSuggestionBool" style="float: right">
+            <label for="Moves" style="text-align:center">Weapons:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Candlestick
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Dagger
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Lead pipe
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Revolver
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Rope
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Monkey Wrench
+                </label>
+            </div>
+        </div>
+        <div v-if="makeSuggestionBool">
+            <label for="Moves" style="text-align:center">Rooms:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Kitchen
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Ballroom
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Conservatory
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Billiard Room
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Library
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Study
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Hall
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Lounge
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Dining Room
+                </label>
+            </div>
+            <button type="button" class="btn btn-info" style="align-items: center">Submit</button>
+        </div>
+
+        <!-- Make Accusation Button -->
+        <div style="text-align:center; margin-top: 1em">
+            <button type="button" class="btn btn-success" v-on:click="makeAccusation">Make Accusation</button>
+        </div>
+        <div v-if="makeAccusationBool" style="float: left">
+            <label for="Moves" style="text-align:center">Suspects:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Miss Scarlet
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Professor Plum
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mrs. Peacock
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mr. Green
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Colonel Mustard
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Mrs. White
+                </label>
+            </div>
+        </div>
+        <div v-if="makeAccusationBool" style="float: right">
+            <label for="Moves" style="text-align:center">Weapons:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Candlestick
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Dagger
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Lead pipe
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Revolver
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Rope
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Monkey Wrench
+                </label>
+            </div>
+        </div>
+        <div v-if="makeAccusationBool">
+            <label for="Moves" style="text-align:center">Rooms:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Kitchen
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Ballroom
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Conservatory
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Billiard Room
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Library
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Study
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Hall
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Lounge
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Dining Room
+                </label>
+            </div>
+            <button type="button" class="btn btn-info" style="align-items: center">Submit</button>
+        </div>
+    </div>
+
+    <button style="margin-top:100px;" class="btn btn-lg" type="reset"><a href="~/Home/UserDashboard">Back</a></button>
+    <div class="col-md-12">
+        <label for="Moves" style="vertical-align: middle; margin-top: 3em">Clue Sheet:</label>
+    </div>
+    
+    <div class="col-lg-12" style="margin-top: 1em">
+
+        <div class="row">
+
+            <div class="col-md-4" style="float: left">
+                <label for="Moves" style="text-align:center">Suspects:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Miss Scarlet
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Professor Plum
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Mrs. Peacock
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Mr. Green
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Colonel Mustard
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Mrs. White
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="Moves" style="text-align:center">Weapons:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Candlestick
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Dagger
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Lead pipe
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Revolver
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Rope
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Monkey Wrench
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="Moves">Rooms:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Kitchen
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Ballroom
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Conservatory
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Billiard Room
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Library
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Study
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Hall
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Lounge
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Dining Room
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        var app = function () {
+            var self = {};
+
+            self.makeSuggestion = function () {
+                self.vue.makeSuggestionBool = (self.vue.makeSuggestionBool) ? false : true;
+                //console.log("Hit");
+            }
+
+            self.makeAccusation = function () {
+                self.vue.makeAccusationBool = (self.vue.makeAccusationBool) ? false : true;
+                //console.log("Hit");
+            }
+
+            self.vue = new Vue({
+                el: "#vue-div",
+                delimiters: ['${', '}'],
+                unsafeDelimiters: ['!{', '}'],
+                data: {
+                    makeSuggestionBool: false,
+                    makeAccusationBool: false,
+
+                },
+                methods: {
+                    makeSuggestion: self.makeSuggestion,
+                    makeAccusation: self.makeAccusation
+                }
+            });
+            return self;
+        };
+
+        var APP = null;
+        // This will make everything accessible from the js console;
+        // for instance, self.x above would be accessible as APP.x
+        jQuery(function () { APP = app(); });
+
+    </script>
+
+
