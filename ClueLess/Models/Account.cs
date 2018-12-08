@@ -115,6 +115,17 @@ namespace ClueLess.Models
             Notification.sendEmail(NotificationType.UserNameReminder, emailAddress);
         }
 
+        public static int ValidateUser(string username, string password)
+        {
+            int userID = -1;
+            using (ClueLessContext db= new ClueLessContext())
+            {
+                User user = db.Users.Where(x => x.Username.Equals(username) && x.Password.Equals(password)).FirstOrDefault();
+                userID = user == null ? user.ID : -1;
+            }
+            return userID;
+        }
+
         public  int UserID { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
