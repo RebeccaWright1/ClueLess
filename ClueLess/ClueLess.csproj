@@ -65,6 +65,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -215,9 +218,13 @@
     <Compile Include="Database\DataModels\Weapon.cs" />
     <Compile Include="Database\DataModels\WeaponConfiguration.cs" />
     <Compile Include="Database\DataModels\WeaponPosition.cs" />
+    <Compile Include="Database\MigrationConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileUploadHelper.cs" />
+    <Compile Include="Helpers\PositionHelper.cs" />
+    <Compile Include="Helpers\SwaggerParameterAttribute.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BoardLocation.cs" />
     <Compile Include="Models\Character.cs" />
@@ -226,6 +233,7 @@
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationOption.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\TurnOption.cs" />
@@ -293,6 +301,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Database\Migrations\" />
+    <Folder Include="Views\Game\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "TestFileUpload";
+}
+
+<h2>TestFileUpload</h2>
+<div id="body">
+    <form name="Form1" method="post" action="~/api/Game/SaveConfiguration" enctype="multipart/form-data">
+        <div>
+            <label>Load Configuration</label>
+            <input name="newConfiguration" type="file"/>
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+    <form name="Form2" method="post" action="~/api/Game/CreateConfiguration" enctype="multipart/form-data">
+        <div>
+            <input type="submit" value="Download" />
+        </div>
+    </form>
+
+
+</div>
+

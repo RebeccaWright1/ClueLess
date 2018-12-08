@@ -11,7 +11,7 @@ namespace ClueLess.Database.DataModels
         [Key]
         public int ID { get; set; }
         [Required]
-        public int Name { get; set; }
+        public String Name { get; set; }
 
         public virtual ICollection<CharacterConfiguration> CharacterConfiguration { get; set; }
     }

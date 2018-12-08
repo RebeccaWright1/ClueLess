@@ -33,7 +33,7 @@ namespace ClueLess.Database.DataModels
         public virtual ICollection<PlayerToLocation> LocationClues { get; set; }
         public virtual ICollection<Suggestion> Suggestion { get; set; }
         public virtual ICollection<ActionTaken> ActionsTaken { get; set; }
-        public virtual ICollection<SecretPassages> SecretPassages { get; set; }
+        public virtual SecretPassages SecretPassages { get; set; }
 
 
     }

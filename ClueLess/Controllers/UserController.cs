@@ -13,26 +13,40 @@ namespace ClueLess.Controllers
     {
         public IHttpActionResult CreateAccount(Account userAccount)
         {
-            return Ok();
+            try
+            {
+                Account.SetAccount(userAccount);
+                return Ok();
+
+            }
+            catch(Exception e)
+            {
+                return Content(HttpStatusCode.BadRequest, "Unable to save account");
+            }
+            
         }
 
         public IHttpActionResult SignIn(String username, String password)
         {
+            //Add code that starts the users session if validated
             return Ok();
         }
 
         public IHttpActionResult SignOut()
         {
+            //Add code that ends users session
             return Ok();
         }
 
         public IHttpActionResult ResetPassword(int userID, string newPassword)
         {
+            Account.ResetPassword(userID, newPassword);
             return Ok();
         }
 
         public IHttpActionResult ForgotUsername(string emailAddresss)
         {
+            Account.RequestUserName(emailAddresss);
             return Ok();
         }
 
