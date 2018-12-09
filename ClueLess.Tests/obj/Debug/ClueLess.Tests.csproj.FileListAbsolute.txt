@@ -46,3 +46,6 @@ C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\obj\Debug\C
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\obj\Debug\ClueLess.Tests.csproj.CopyComplete
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\obj\Debug\ClueLess.Tests.dll
 C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\obj\Debug\ClueLess.Tests.pdb
+C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\bin\Debug\Owin.dll
+C:\Users\Xian\Desktop\desktop files\Projects\ClueLess\ClueLess.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.xml

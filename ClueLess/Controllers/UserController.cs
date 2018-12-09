@@ -29,20 +29,20 @@ namespace ClueLess.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult SignIn(String username, String password)
+        [Route("UserController/SignIn")]
+        public IHttpActionResult SignIn(LoginDTO login)
         {
             //Add code that starts the users session if validated
-            int id = Account.ValidateUser(username, password);
-            if(id>0)
+            int id = Account.ValidateUser(login.username, login.password);
+            if (id > 0)
             {
                 HttpContext.Current.Session["userID"] = id;
                 return Ok();
             }
             else
             {
-                return BadRequest();
+                return BadRequest("User Does Not Exist, Please Sign Up First");
             }
-            
         }
 
         [HttpPost]
