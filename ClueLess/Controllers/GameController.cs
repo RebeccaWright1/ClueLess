@@ -24,6 +24,7 @@ namespace ClueLess.Controllers
 
         public IHttpActionResult StartGame(int userID, int gameID)
         {
+           
             return Ok();
         }
 
@@ -80,6 +81,12 @@ namespace ClueLess.Controllers
                 configurationSaved= Models.Configuration.SaveConfiguration(fileToRead, 1);
             }
             return Ok();
+        }
+
+        public void SendEmail()
+        {
+            Notification.SendEmail(Notification.NotificationType.UserNameReminder, "crochet.wright@gmail.com", 1);
+           
         }
 
     }

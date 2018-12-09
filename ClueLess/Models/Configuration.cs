@@ -20,7 +20,7 @@ namespace ClueLess.Models
             //Connect to the database
             ClueLessContext db = new ClueLessContext();
             //Get the ID of the Default configurations
-            Database.DataModels.Configuration config = db.Configurations.Where(x => x.Name == "Narnia").FirstOrDefault();
+            Database.DataModels.Configuration config = db.Configurations.Where(x => x.Name == "Default").FirstOrDefault();
 
 
             string ConfigurationDownload = "Attachment; filename=ConfigurationTemplate.txt";
