@@ -107,12 +107,12 @@ namespace ClueLess.Models
             user.Password = newPassword;
             db.SaveChanges();
 
-            Notification.sendEmail(NotificationType.PasswordReset, user.EmailAddress);
+            Notification.SendEmail(NotificationType.PasswordReset, user.EmailAddress);
         }
 
         public static void RequestUserName(string emailAddress)
         {
-            Notification.sendEmail(NotificationType.UserNameReminder, emailAddress);
+            Notification.SendEmail(NotificationType.UserNameReminder, emailAddress);
         }
 
         public static int ValidateUser(string username, string password)

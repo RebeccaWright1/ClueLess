@@ -33,6 +33,9 @@ namespace ClueLess.Database.DataModels
     public enum Status
     {
         New=1,
-        InProgress=2
+        InProgress=2,
+        Completed_Solved=3,
+        Completed_Unsolved=4
+
     }
 }

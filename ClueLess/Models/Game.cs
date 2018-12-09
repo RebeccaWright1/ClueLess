@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClueLess.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,17 @@ namespace ClueLess.Models
         {
             return new List<LocationOption>();
         }
+
+        public List<Database.DataModels.Game> PullGameList()
+        {
+            List<Database.DataModels.Game> gameList= new List<Database.DataModels.Game>();
+            using(ClueLessContext db= new ClueLessContext())
+            {
+                gameList = db.Games.ToList();
+            }
+            return gameList;
+        }
+
 
         public static Game GetGameboard(int gameID)
         {
