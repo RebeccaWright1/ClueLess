@@ -40,7 +40,7 @@ namespace ClueLess.Controllers
         {
         }
 
-      [HttpGet]
+        [HttpGet]
         public String HelloWorld()
         {
             return "Hello World";

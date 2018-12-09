@@ -12,6 +12,7 @@ namespace ClueLess.Controllers
 {
     public class UserController : ApiController
     {
+        [HttpPost]
         public IHttpActionResult CreateAccount(Account userAccount)
         {
             try
@@ -27,6 +28,7 @@ namespace ClueLess.Controllers
             
         }
 
+        [HttpPost]
         public IHttpActionResult SignIn(String username, String password)
         {
             //Add code that starts the users session if validated
@@ -43,6 +45,7 @@ namespace ClueLess.Controllers
             
         }
 
+        [HttpPost]
         public IHttpActionResult SignOut()
         {
             //Add code that ends users session
@@ -50,19 +53,21 @@ namespace ClueLess.Controllers
             return Ok();
         }
 
+        [HttpPost]
         public IHttpActionResult ResetPassword(int userID, string newPassword)
         {
             Account.ResetPassword(userID, newPassword);
             return Ok();
         }
 
+        [HttpPost]
         public IHttpActionResult ForgotUsername(string emailAddresss)
         {
             Account.RequestUserName(emailAddresss);
             return Ok();
         }
 
-
+        [HttpPost]
         public Account EditAccount(int userID)
         {
             Account newAccount = new Account();
