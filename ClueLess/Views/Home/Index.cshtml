@@ -1,7 +1,7 @@
 ﻿<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-@model ClueLess.Models.LoginDTO
+@model ClueLess.Models.Account
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -13,29 +13,32 @@
             <div style="padding-top:30px" class="panel-body">
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                @using (Html.BeginForm("SignIn", "UserController", FormMethod.Post))
-                {
-                <div style="margin-bottom: 25px" class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    @Html.TextBoxFor(model => model.username)
-                </div>
+                <form id="loginForm">
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" name="username" id="username" tabindex="1" class="form-control" />
+                    </div>
 
-                <div style="margin-bottom: 25px" class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    @Html.TextBoxFor(model => model.password)
-                </div>
-                    <button type="submit"; style="float:right; font-size: 80%; position: relative; top:-10px">Sign In</button>
-                }
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                                Don't have an account!
-                                <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                    Sign Up Here
-                                </a>
-                            </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="text" name="password" id="password" tabindex="1" class="form-control" />
+                    </div>
+                    <button typp="submit" ; style="float:right; font-size: 80%; position: relative; top:-10px">Sign In</button>
+
+                </form>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                            Don't have an account!
+                            <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                Sign Up Here
+                            </a>
                         </div>
                     </div>
+                </div>
 
             </div>
         </div>
@@ -47,48 +50,33 @@
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
             </div>
             <div class="panel-body">
-                <form id="signupform" class="form-horizontal" role="form">
-
-                    <div id="signupalert" style="display:none" class="alert alert-danger">
-                        <p>Error:</p>
-                        <span></span>
-                    </div>
-
-
-
+                @using (Html.BeginForm("CreateAccount", "UserController", FormMethod.Post))
+                {
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="email" placeholder="Email Address">
-                        </div>
+                        @Html.TextBoxFor(model => model.Email)
                     </div>
 
                     <div class="form-group">
                         <label for="firstname" class="col-md-3 control-label">First Name</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                        </div>
+                        @Html.TextBoxFor(model => model.FirstName)
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                        </div>
+                        @Html.TextBoxFor(model => model.LastName)
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-md-3 control-label">Password</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="passwd" placeholder="Password">
-                        </div>
+                        <label for="usernmae" class="col-md-3 control-label">Username</label>
+                        @Html.TextBoxFor(model => model.UserName)
                     </div>
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                            <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
                         </div>
                     </div>
+                }
 
-                </form>
             </div>
         </div>
 
@@ -96,5 +84,44 @@
 
     </div>
 
+    @section scripts{
+        <script>
+                        $(document).ready(function () {
+                            $("#loginForm").submit(function (e) {
+                                e.preventDefault();
+                                $.ajax({
+                                    type: "POST",
+                                    data: $("#loginForm").serializeArray(),
+                                    url: "@Url.Action("SignIn","UserController")" + "?" + $("#loginForm").serialize(),
+                                    async: false,
+                                    success: function () {
+                                        alert("Account Signed Up");
+                                        location.href = "/Home/UserDashboard"
+                                    },
+                                    error: function () {
+                                        alert("Wrong Username/Password");
+                                    }
+                                });
+                            });
+                        });
 
+                        $(document).ready(function () {
+                            $("#btn-signup").click(function (e) {
+                                e.preventDefault();
+                                $.ajax({
+                                    type: "GET",
+                                    url: "@Url.Action("CreateAccount","UserController")",
+                                    async: false,
+                                    success: function () {
+                                        alert("Sign Up Successful");
+                                        location.href = "/Home/Index"
+                                    },
+                                    error: function () {
+                                        alert("Wrong Username/Password");
+                                    }
+                                });
+                            });
+                        });
+        </script>
+    }
 </div>

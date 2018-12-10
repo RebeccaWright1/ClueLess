@@ -12,7 +12,8 @@ namespace ClueLess.Controllers
 {
     public class UserController : ApiController
     {
-        [HttpPost]
+        [HttpPost, HttpGet]
+        [Route("UserController/CreateAccount/")]
         public IHttpActionResult CreateAccount(Account userAccount)
         {
             try
@@ -29,23 +30,24 @@ namespace ClueLess.Controllers
         }
 
         [HttpPost]
-        [Route("UserController/SignIn")]
-        public IHttpActionResult SignIn(LoginDTO login)
+        [Route("UserController/SignIn/")]
+        public IHttpActionResult SignIn(string username, string password)
         {
             //Add code that starts the users session if validated
-            int id = Account.ValidateUser(login.username, login.password);
+            int id = Account.ValidateUser(username, password);
             if (id > 0)
             {
                 HttpContext.Current.Session["userID"] = id;
-                return Ok();
+                return Ok("success");
             }
             else
             {
-                return BadRequest("User Does Not Exist, Please Sign Up First");
+                return BadRequest();
             }
         }
 
         [HttpPost]
+        [Route("UserController/SignOut/")]
         public IHttpActionResult SignOut()
         {
             //Add code that ends users session
