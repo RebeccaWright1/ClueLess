@@ -20,5 +20,8 @@ namespace ClueLess
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+
+        public static string UrlPrefix { get { return "api"; } }
+        public static string UrlPrefixRelative { get { return "~/api"; } }
     }
 }

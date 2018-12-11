@@ -7,7 +7,12 @@ namespace ClueLess.Models
 {
     public class Game
     {
-        public Game() { }
+        public Game()
+        {
+            Random rnd = new Random();
+            ID = rnd.Next(1, 100000);
+            Name = "Game: " + ID.ToString();
+        }
 
         private void ChangeGameStatus( int statusIndicator)
         {
