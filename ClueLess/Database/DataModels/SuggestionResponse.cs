@@ -19,7 +19,7 @@ namespace ClueLess.Database.DataModels
         public int PlayerID { get; set; }
 
         [Required]
-        public string Reponse { get; set; }
+        public string Response { get; set; }
         public int RevealedClueID { get; set; }
         public string RevealedClueTable { get; set; }
 

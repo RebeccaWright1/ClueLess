@@ -2,8 +2,8 @@
 {
     public class LocationOption
     {
-        public static int ID { get; set; }
-        public  static string Location { get; set; }
+        public  int ID { get; set; }
+        public   string Location { get; set; }
 
     }
 }

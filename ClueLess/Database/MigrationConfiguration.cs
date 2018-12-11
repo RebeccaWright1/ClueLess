@@ -143,6 +143,15 @@ namespace ClueLess.Database
                 );
             context.SaveChanges();
 
+            //Populate the actions
+            context.Actions.AddOrUpdate(x => x.ActionName,
+                new Actions() { ID = 1, ActionName = "Move to room" },
+                new Actions() { ID = 1, ActionName = "Move to hallway" },
+                new Actions() { ID = 1, ActionName = "Move using secret passage" },
+                new Actions() { ID = 1, ActionName = "Make a suggesstion" },
+                new Actions() { ID = 1, ActionName = "Make an accusation" },
+                new Actions() { ID = 1, ActionName = "Respond to suggestion" },
+                new Actions() { ID = 1, ActionName = "Signal End of Turn" });
             
             base.Seed(context);
         }

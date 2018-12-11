@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClueLess.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,22 +20,43 @@ namespace ClueLess.Models
             throw new NotImplementedException();
         }
 
-        public static void MoveToLocation(int locationID, int characterid)
+        public static void SignalEndofTurn(int playerID)
         {
-            throw new NotImplementedException();
+           
+            using(ClueLessContext db= new ClueLessContext())
+            {
+                Database.DataModels.Player currentPlayer = db.Players.Where(x => x.ID == playerID).FirstOrDefault();
+                int NextPlayerID = FindNextPlayer(currentPlayer.GameID);
+                Database.DataModels.Player nextPlayer = db.Players.Where(x => x.ID == NextPlayerID).FirstOrDefault();
+
+                currentPlayer.IsCurrentPlayer = false;
+                nextPlayer.IsCurrentPlayer = true;
+
+                db.SaveChanges();
+            }
         }
 
-        public static void SignalEndofTurn()
+        private static int FindNextPlayer(int gameID)
         {
-            throw new NotImplementedException();
+            ClueLessContext db = new ClueLessContext();
+            int nextPlayerID;
+            //Pull the list of all the players
+            List<Database.DataModels.Player> players = db.Players.Where(x => x.GameID == gameID && x.IsActive==true).OrderBy(x=>x.ID).ToList();
+
+            //Get the index of the current player
+            int currentIndex = players.IndexOf(players.Where(x => x.IsCurrentPlayer).FirstOrDefault());
+
+            if (currentIndex == players.Count-1)
+            {
+                 nextPlayerID = players.ElementAt(0).ID;
+            }
+            else
+            {
+                 nextPlayerID = players.ElementAt(currentIndex + 1).ID;
+            }
+
+            return nextPlayerID;
         }
-
-        public static String RespondToSuggestion()
-        {
-            return "Not Implemented";
-        }
-
-
 
         public  int CharacterID { get; set; }
         public  bool IsActive { get; set; }

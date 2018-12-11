@@ -104,8 +104,3 @@ C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csproj.Co
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.dll
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.pdb
 C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\obj\Debug\ClueLess.csprojResolveAssemblyReference.cache
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\BouncyCastle.Crypto.dll
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\MailKit.dll
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\MimeKit.dll
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\MailKit.xml
-C:\Users\wrigh\source\SchoolRepos\ClueLess\ClueLess\bin\MimeKit.xml

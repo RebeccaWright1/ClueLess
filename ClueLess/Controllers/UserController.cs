@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace ClueLess.Controllers
 {
+    [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
         public IHttpActionResult CreateAccount(Account userAccount)
@@ -33,6 +34,7 @@ namespace ClueLess.Controllers
             int id = Account.ValidateUser(username, password);
             if(id>0)
             {
+              
                 HttpContext.Current.Session["userID"] = id;
                 return Ok();
             }
