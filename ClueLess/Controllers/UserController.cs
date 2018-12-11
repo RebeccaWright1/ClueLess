@@ -37,7 +37,7 @@ namespace ClueLess.Controllers
             int id = Account.ValidateUser(username, password);
             if (id > 0)
             {
-                HttpContext.Current.Session["userID"] = id;
+                //HttpContext.Current.Session["userID"] = id;
                 return Ok("success");
             }
             else
@@ -51,15 +51,25 @@ namespace ClueLess.Controllers
         public IHttpActionResult SignOut()
         {
             //Add code that ends users session
-            HttpContext.Current.Session.Abandon();
+            //HttpContext.Current.Session.Abandon();
             return Ok();
         }
 
         [HttpPost]
-        public IHttpActionResult ResetPassword(int userID, string newPassword)
+        [Route("UserController/ResetPassword/")]
+        public IHttpActionResult ResetPassword(string username, string oldPassword, string newPassword)
         {
-            Account.ResetPassword(userID, newPassword);
-            return Ok();
+            int userID = Account.ValidateUser(username, oldPassword);
+            if (userID > 0)
+            {
+                Account.ResetPassword(userID, newPassword);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpPost]
@@ -69,11 +79,11 @@ namespace ClueLess.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        public Account EditAccount(int userID)
-        {
-            Account newAccount = new Account();
-            return newAccount;
-        }
+        //[HttpPost]
+        //public Account EditAccount(int userID)
+        //{
+        //    Account newAccount = new Account();
+        //    return newAccount;
+        //}
     }
 }

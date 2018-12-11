@@ -38,5 +38,11 @@ namespace ClueLess.Controllers
             ViewBag.Title = "Edit Profile";
             return View();
         }
+
+        public ActionResult ResetPassword()
+        {
+            ViewBag.Title = "Reset Password";
+            return View();
+        }
     }
 }

@@ -23,14 +23,15 @@ namespace ClueLess.Models
         public static void SetAccount(Account updatedAccount) {
             try
             {
-                User useraccount;
+                User useraccount = new User();
                 //Step 1. Connect to the database
                 ClueLessContext db = new ClueLessContext();
                 //Step 2. Pull the user from the database based on the user's ID
-                if (updatedAccount.UserID > 0)
+                if (updatedAccount != null && updatedAccount.UserID > 0)
                 {
                     useraccount = db.Users.Where(user => user.ID == updatedAccount.UserID).FirstOrDefault();
                 }
+                
                 else //Step 3. If the user is null, create a new user
                 {
                     useraccount = new User

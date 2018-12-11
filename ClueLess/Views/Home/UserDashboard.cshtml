@@ -7,20 +7,76 @@
         <div class="col-lg-3">
             <p><a href="~/Home/GameView" class="btn btn-outlined btn-primary">Join Game</a></p>
         </div>
+    </div>
+    <div class="row">
         <div class="col-lg-3">
             <p><a href="~/Home/EditProfile" class="btn btn-outlined btn-success">Edit Profile</a></p>
         </div>
+    </div>
+    <div class="row">
         <div class="col-lg-3">
-            <p><a href="#" class="btn btn-outlined btn-info">Update Password</a></p>
+            <p><a href="~/Home/ResetPassword" class="btn btn-outlined btn-info">Update Password</a></p>
         </div>
+    </div>
+    <div class="row">
         <div class="col-lg-3">
+            <button class="btn btn-outlined btn-primary" href="#" onClick="$('#gamerulebox').show()">
+                Show Game Rule
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3" style="margin-top:10px">
             <button id="btn-signout" href="~/Home/Index" class="btn btn-outlined btn-info">Sign Out</button>
         </div>
     </div>
-</div>
 
-@section scripts{
-    <script>
+    <div id="gamerulebox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Game Rules</div>
+
+            </div>
+            <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
+            <div class="panel-body">
+                <p>
+                    <h3>Object of Clue-Less:</h3>
+                    ClueLess is an interactive online board game system in which you must be the first to solve the mystery of a murder by correctly identifying who did the murder, where it was done, and how they did it.
+
+                    <h3>Contents of Clue-Less:</h3>
+                    The board game ClueLess comes with the Clue-Less game board (including nine rooms), suspect tokens (Col. Mustard – Yellow, Miss Scarlet – Red, Prof. Plum – Purple, Mr. Green – Green, Mrs. White – White, Mrs. Peacock – Blue), six weapon pieces, one die, a 21 pack of cards (six suspect cards, six weapon cards, and nine room cards), a pad of Detective Notes, and the official Clue board game rules and instructions.
+
+                    <h3>Game Preparation:</h3>
+                    Shuffle all 21 cards in their corresponding groups (suspect, weapon, and rooms) and randomly pick a card from each group with out showing anybody including you. A total of three cards are then inserted into the envelope marked “Solution Cards” and placed over the spot marked with an “X.” All remaining cards are then shuffled together and mixed. Deal one card clockwise to each player until all cards have been dealt. Some players may have more cards than others and is important to not let anyone see your cards.
+
+                    To finish setting up the Clue board game, as mentioned in the rules, position all six character playing piece on the starting squares marked with their names. This is done whether you have six players or not. Randomly place each weapon in a different room. The suspect token located closet to each player is the token they will use throughout the game.
+
+                    <h3>Game Play:</h3>
+                    Instructions for who starts the game are whoever has Miss Scarlet (red) rolls the die and is the first to move. Clue game play is then continued to the player left of Miss Scarlet.
+
+                    Players move their suspect token across the yellow squares the amount shown on the die in their roll. You may move your token forwards, backwards, or crosswise all in the same turn. Moving your token diagonally is against the Clue rules. You cannot move your token to a particular space twice in the same turn nor occupy or move through the same square as another player. This rule does not apply to rooms as multiple players and weapons may occupy the same room.
+
+                    The Clue board game rules state that there are three ways to enter or exit a room: 1) entering through the doorway by moving your token the number shown on the die across the yellow squares, 2) you may use the Secret Passages by jumping corner to corner across the board without using the die, 3) or your token may be placed into a room by another player when suggestions are being made to solve the murder mystery. It is against Clue rules to enter and exit a room during the same turn; entering a room ends your turn. You do not need to throw the exact number on the die to enter a room. Doors or each room do not count as a square.
+
+                    Once a player enters a room, they are then eligible to make a “suggestion” on who committed the Clue game murder. This is done when the player names a Suspect, a Weapon, and the Room that they are currently in (“I suggest that the crime was committed in the Library, by Prof. Plum with the Rope”). If the named suspect is not currently in the room where the suggestion was made they are brought into the room along with the suggested weapon. Keep in mind that all characters are considered as suspects in the crime and not only those who are being player. Forfeiting or not taking your turn is against the rules; all players must roll the die. After entering a room and making a suggestions, you may not make another suggestions until entering another room or using at least two turns (leaving and then re-entering the same room).
+
+                    Secret Passages can be used in any corner room on the player’s turn without rolling the die. The player then announces that he has used the secret passage and may make a Suggestion.
+
+                    After a Suggestion has been made, if possible, players must try to prove the Suggestion to be false. This is done by moving left to the player making the accusation. If that player has one of the cards that were used in the alleged crime, he then secretly shows the player making the suggestion. Clue rules state that only one card is shown to the other player and that it is done secretly with out others seeing which card it is. It is not against the rules, however, to deliberately make a Suggestion naming one or two cards that you hold in your own hand to mislead other players or to narrow your search for one specific suspect, room, or weapon. If the player to the left cannot prove the suggestion wrong, then the next player to the left attempts to prove it wrong. All cards shown prove that that card is not in the envelope and should be noted on your Detective Pad. Once a player has proven the Suggestion wrong, the next payer in the playing order takes their turn. If no one disproves the Suggestion the player then may either pass their turn or make an Accusation.
+
+                    When an Accusation is made, the player (on their turn) states that an Accusation is being made and states the three cards that he thinks committed the murder. They then carefully look at the cards inside the envelope making sure that no one else sees the cards. Unlike the previously stated rules, a player may make an accusation whether or not their token is in the room they mention. If the 3 cards named are the cards in the envelope, they are placed face up on the Clue board and that player is the winner. If the accusation is wrong, the cards are secretly placed back into the envelope and that player can no longer win nor make any suggestions/accusations. They stay in the game only to prove other’s suggestions wrong with the cards they hold in their hands. Once a player has accused the wrong cards, blocking the doorways to rooms is against the rules and they must be moved into the nearest room. One Accusation per player per game is permitted.
+
+                    There are no strict Clue rules that explain how the Detective Note Pads should be used but it is suggested that you check off or write the initials of the player who has each specific card.
+                </p>
+            </div>
+            <button class="btn btn-outlined btn-primary" href="#" onClick="$('#gamerulebox').hide()">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    @section scripts{
+        <script>
                         $(document).ready(function () {
                             $("#btn-signout").click(function (e) {
                                 e.preventDefault();
@@ -35,7 +91,6 @@
                                 });
                             });
                         });
-    </script>
-}
-
-
+        </script>
+    }
+</div>

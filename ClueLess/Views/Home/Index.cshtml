@@ -1,6 +1,9 @@
 ﻿<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
 @model ClueLess.Models.Account
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
@@ -8,7 +11,6 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Sign In</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
             </div>
             <div style="padding-top:30px" class="panel-body">
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
@@ -32,7 +34,6 @@
                 <div class="form-group">
                     <div class="col-md-12 control">
                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
-                            Don't have an account!
                             <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
                                 Sign Up Here
                             </a>
@@ -50,7 +51,7 @@
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm("CreateAccount", "UserController", FormMethod.Post))
+                @using (Ajax.BeginForm("CreateAccount", "UserController", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onSuccess();" }))
                 {
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">Email</label>
@@ -66,7 +67,7 @@
                         @Html.TextBoxFor(model => model.LastName)
                     </div>
                     <div class="form-group">
-                        <label for="usernmae" class="col-md-3 control-label">Username</label>
+                        <label id="username" class="col-md-3 control-label">Username</label>
                         @Html.TextBoxFor(model => model.UserName)
                     </div>
                     <div class="form-group">
@@ -76,16 +77,21 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
-
-
-
     </div>
 
     @section scripts{
-        <script>
+    <script>
+        
+        function onSuccess() {
+            alert("Account Signed Up Successfully");
+            window.location.href = "/Home/Index";
+        }
+
+
+
+
                         $(document).ready(function () {
                             $("#loginForm").submit(function (e) {
                                 e.preventDefault();
@@ -95,7 +101,7 @@
                                     url: "@Url.Action("SignIn","UserController")" + "?" + $("#loginForm").serialize(),
                                     async: false,
                                     success: function () {
-                                        alert("Account Signed Up");
+                                        alert("Sign In Successful");
                                         location.href = "/Home/UserDashboard"
                                     },
                                     error: function () {
@@ -103,25 +109,8 @@
                                     }
                                 });
                             });
-                        });
+            });
+                </script>
 
-                        $(document).ready(function () {
-                            $("#btn-signup").click(function (e) {
-                                e.preventDefault();
-                                $.ajax({
-                                    type: "GET",
-                                    url: "@Url.Action("CreateAccount","UserController")",
-                                    async: false,
-                                    success: function () {
-                                        alert("Sign Up Successful");
-                                        location.href = "/Home/Index"
-                                    },
-                                    error: function () {
-                                        alert("Wrong Username/Password");
-                                    }
-                                });
-                            });
-                        });
-        </script>
-    }
+            }
 </div>
