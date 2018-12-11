@@ -12,6 +12,11 @@ namespace ClueLess.Controllers
 {
     public class GameController : ApiController
     {
+        public IHttpActionResult CreateGame()
+        {
+            return Ok();
+        }
+
         public IHttpActionResult SetupBoard(int userID, int configurationID)
         {
             return Ok();
