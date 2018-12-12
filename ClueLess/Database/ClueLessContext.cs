@@ -28,6 +28,7 @@ namespace ClueLess.Database
         public DbSet<PlayerToLocation> PlayersToLocations { get; set; }
         public DbSet<PlayerToWeapon> PlayersToWeapons { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<PositionToClue> PositionsToClues { get; set; }
         public DbSet<SecretPassages> SecretPassages { get; set; }
         public DbSet<Suggestion> Suggestions { get; set; }
         public DbSet<SuggestionResponse> SuggestionResponses { get; set; }

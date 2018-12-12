@@ -1,4 +1,5 @@
 ﻿using ClueLess.Database;
+using ClueLess.Database.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,21 +9,40 @@ namespace ClueLess.Models
 {
     public class Game
     {
-        public Game() { }
-
-        private void ChangeGameStatus( int statusIndicator)
+        public Game()
         {
-
+            Random rnd = new Random();
+            ID = rnd.Next(1, 100000);
+            Name = "Game: " + ID.ToString();
         }
 
-        private static List<TurnOption> GetMoveOptions()
+        public static void ChangeGameStatus( int gameID, Database.DataModels.Status status)
         {
-            return new List<TurnOption>();
+            using(ClueLessContext db= new ClueLessContext())
+            {
+                Database.DataModels.Game game = db.Games.Where(x => x.ID == gameID).FirstOrDefault();
+                game.Status = status;
+                db.SaveChanges();
+            }
         }
 
-        private static List<LocationOption> GetLocationOptions()
+        public static List<Actions> GetMoveOptions()
         {
-            return new List<LocationOption>();
+            using(ClueLessContext db= new ClueLessContext())
+            {
+                return db.Actions.ToList();
+            }
+           
+        }
+
+        public static List<LocationOption> GetLocationOptions(int gameID)
+        {
+            ClueLessContext db = new ClueLessContext();
+            //get the game's configuration ID
+            int configurationID = db.Games.Where(x => x.ID == gameID).Select(x=>x.ConfigurationID).FirstOrDefault();
+            List<LocationOption> locations = new List<LocationOption>();
+            List<LocationOption> position = db.Positions.Where(x => x.ConfigurationID == configurationID).Select(x => new LocationOption { ID = x.ID, Location = x.Location.LocationName }).ToList();
+            return position;
         }
 
         public List<Database.DataModels.Game> PullGameList()
@@ -40,6 +60,16 @@ namespace ClueLess.Models
         {
             Game game = new Game();
             return game;
+        }
+
+        public static void MoveCharacter(int playerID, int locationID)
+        {
+            using(ClueLessContext db= new ClueLessContext())
+            {
+                Database.DataModels.Player playerToBeMoved = db.Players.Where(x => x.ID == playerID).FirstOrDefault();
+                playerToBeMoved.PositionID = locationID;
+                db.SaveChanges();
+            }
         }
 
         public  int ID { get; set; }

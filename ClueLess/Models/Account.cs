@@ -124,6 +124,11 @@ namespace ClueLess.Models
                 User user = db.Users.Where(x => x.Username.Equals(username) && x.Password.Equals(password)).FirstOrDefault();
                 userID = user == null ? -1 : user.ID;
             }
+
+            //if (userID > 0)
+            //{
+            //    HttpContext.Current.Session["userID"] = userID;
+            //}
             return userID;
         }
 

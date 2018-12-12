@@ -12,6 +12,11 @@ namespace ClueLess.Controllers
 {
     public class GameController : ApiController
     {
+        public IHttpActionResult CreateGame()
+        {
+            return Ok();
+        }
+
         public IHttpActionResult SetupBoard(int userID, int configurationID)
         {
             return Ok();
@@ -35,21 +40,31 @@ namespace ClueLess.Controllers
 
         public IHttpActionResult MakeSuggestion(Suggestion suggestion)
         {
+            //Save the suggestion
+            suggestion.Save();
             return Ok();
         }
 
-        public IHttpActionResult RespondToASuggestion (int playerID, int clueID = -1)
+        public IHttpActionResult RespondToASuggestion (int playerID, int suggestionID, int clueID = -1, string clueType ="")
         {
-            return Ok();
+           Clue response= Suggestion.RespondToSuggestion(playerID, suggestionID, clueID, clueType);
+            return Ok(response);
         }
 
         public IHttpActionResult MoveCharacter(int playerID, int locationID)
         {
+            Game.MoveCharacter(playerID, locationID);
             return Ok();
         }
 
         public IHttpActionResult MakeAccusation(Suggestion accusation)
         {
+            //Save the accusation
+            accusation.Save();
+
+            //Validate
+            accusation.ValidateAccusation();
+           
             return Ok();
         }
 
@@ -83,11 +98,11 @@ namespace ClueLess.Controllers
             return Ok();
         }
 
-        public void SendEmail()
-        {
-            Notification.SendEmail(Notification.NotificationType.UserNameReminder, "crochet.wright@gmail.com", 1);
+        //public void SendEmail()
+        //{
+        //    Notification.SendEmail(Notification.NotificationType.UserNameReminder, "crochet.wright@gmail.com", 1);
            
-        }
+        //}
 
     }
 }

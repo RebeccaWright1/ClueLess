@@ -10,10 +10,9 @@ using System.Web.Http;
 
 namespace ClueLess.Controllers
 {
+    [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
-        [HttpPost, HttpGet]
-        [Route("UserController/CreateAccount/")]
         public IHttpActionResult CreateAccount(Account userAccount)
         {
             try
@@ -29,40 +28,14 @@ namespace ClueLess.Controllers
             
         }
 
-        [HttpPost]
-        [Route("UserController/SignIn/")]
-        public IHttpActionResult SignIn(string username, string password)
+        public IHttpActionResult SignIn(String username, String password)
         {
             //Add code that starts the users session if validated
             int id = Account.ValidateUser(username, password);
-            if (id > 0)
+            if(id>0)
             {
-                //HttpContext.Current.Session["userID"] = id;
-                return Ok("success");
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpPost]
-        [Route("UserController/SignOut/")]
-        public IHttpActionResult SignOut()
-        {
-            //Add code that ends users session
-            //HttpContext.Current.Session.Abandon();
-            return Ok();
-        }
-
-        [HttpPost]
-        [Route("UserController/ResetPassword/")]
-        public IHttpActionResult ResetPassword(string username, string oldPassword, string newPassword)
-        {
-            int userID = Account.ValidateUser(username, oldPassword);
-            if (userID > 0)
-            {
-                Account.ResetPassword(userID, newPassword);
+              
+                HttpContext.Current.Session["userID"] = id;
                 return Ok();
             }
             else
@@ -72,18 +45,30 @@ namespace ClueLess.Controllers
             
         }
 
-        [HttpPost]
+        public IHttpActionResult SignOut()
+        {
+            //Add code that ends users session
+            HttpContext.Current.Session.Abandon();
+            return Ok();
+        }
+
+        public IHttpActionResult ResetPassword(int userID, string newPassword)
+        {
+            Account.ResetPassword(userID, newPassword);
+            return Ok();
+        }
+
         public IHttpActionResult ForgotUsername(string emailAddresss)
         {
             Account.RequestUserName(emailAddresss);
             return Ok();
         }
 
-        //[HttpPost]
-        //public Account EditAccount(int userID)
-        //{
-        //    Account newAccount = new Account();
-        //    return newAccount;
-        //}
+
+        public Account EditAccount(int userID)
+        {
+            Account newAccount = new Account();
+            return newAccount;
+        }
     }
 }
