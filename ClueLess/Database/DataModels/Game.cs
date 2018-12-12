@@ -21,7 +21,7 @@ namespace ClueLess.Database.DataModels
         public int UserID { get; set; }
 
        // [ForeignKey("UserID")]
-        public virtual User GameOwner { get; set; }
+        public virtual User User { get; set; }
 
       //  [ForeignKey("ConfigurationID")]
         public virtual Configuration Configuration { get; set; }

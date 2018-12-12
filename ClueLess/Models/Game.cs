@@ -14,6 +14,23 @@ namespace ClueLess.Models
             Random rnd = new Random();
             ID = rnd.Next(1, 100000);
             Name = "Game: " + ID.ToString();
+            using(ClueLessContext db=new ClueLessContext())
+            {
+
+            }
+        }
+        public Game(int userID, int configurationID, string name)
+        {
+            using (ClueLessContext db = new ClueLessContext())
+            {
+                db.Games.Add(new Database.DataModels.Game
+                {
+                    UserID = userID,
+                    ConfigurationID = configurationID,
+                    Name = name
+                });
+                db.SaveChanges();
+            }
         }
 
         public static void ChangeGameStatus( int gameID, Database.DataModels.Status status)

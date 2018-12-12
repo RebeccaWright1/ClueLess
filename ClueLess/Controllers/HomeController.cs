@@ -67,5 +67,9 @@ namespace ClueLess.Controllers
             ViewBag.Title = "Reset Password";
             return View();
         }
+        public ActionResult TestUpload()
+        {
+            return View();
+        }
     }
 }

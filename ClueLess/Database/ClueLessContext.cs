@@ -69,7 +69,7 @@ namespace ClueLess.Database
             //modelBuilder.Entity<Game>().HasMany(g => g.Players);
             //modelBuilder.Entity<Game>().HasMany(g => g.Weapons);
             modelBuilder.Entity<Game>().HasRequired(g => g.Configuration).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<Game>().HasRequired(g => g.GameOwner).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Game>().HasRequired(g => g.User).WithMany().WillCascadeOnDelete(false);
             //modelBuilder.Entity<Game>().HasRequired(g => g.Solution);
 
             //modelBuilder.Entity<GameSolution>().HasKey(gs => gs.ID);

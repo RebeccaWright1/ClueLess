@@ -12,9 +12,10 @@ namespace ClueLess.Controllers
 {
     public class GameController : ApiController
     {
-        public IHttpActionResult CreateGame()
+        public IHttpActionResult CreateGame(int userID, int configurationID, string name)
         {
-            return Ok();
+            Game game = new Game(userID, configurationID,name);
+            return Ok(game);
         }
 
         public IHttpActionResult SetupBoard(int userID, int configurationID)
@@ -98,11 +99,11 @@ namespace ClueLess.Controllers
             return Ok();
         }
 
-        //public void SendEmail()
-        //{
-        //    Notification.SendEmail(Notification.NotificationType.UserNameReminder, "crochet.wright@gmail.com", 1);
-           
-        //}
+        public void SendEmail()
+        {
+            Notification.SendEmail(Notification.NotificationType.UserNameReminder, "crochet.wright@gmail.com", 1);
+
+        }
 
     }
 }
