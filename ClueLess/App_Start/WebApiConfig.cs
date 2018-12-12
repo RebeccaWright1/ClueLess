@@ -26,8 +26,5 @@ namespace ClueLess
 
            // config.Routes.MapHttpRoute(name: "ApiByAction", routeTemplate: "api/{controller}/{action}");
         }
-
-        public static string UrlPrefix { get { return "api"; } }
-        public static string UrlPrefixRelative { get { return "~/api"; } }
     }
 }
